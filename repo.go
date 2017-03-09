@@ -54,7 +54,8 @@ func (c *Client) ListUserRepos(user string) ([]*Repository, error) {
 
 func (c *Client) ListOrgRepos(org string) ([]*Repository, error) {
 	repos := make([]*Repository, 0, 10)
-	return repos, c.getParsedResponse("GET", fmt.Sprintf("/orgs/%s/repos", org), nil, nil, &repos)
+	fmt.Println("ListOrgRepos is called")
+	return repos, c.getParsedResponse("GET", fmt.Sprintf("/%s", org), nil, nil, &repos)
 }
 
 type CreateRepoOption struct {
